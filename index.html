@@ -9,26 +9,73 @@
   <meta name="twitter:description" content="Tetris game made with modern Javascript.">
   <meta name="twitter:card" content="summary" />
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+		* {
+			font-family: 'Press Start 2P', cursive;
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: 320px 200px;
+			margin-left: 450px;
+			margin-top: 40px;
+		}
+
+		.right-column {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.game-board {
+			border: solid 2px;
+		}
+
+		.play-button {
+			background-color: #4caf50;
+			font-size: 16px;
+			padding: 15px 30px;
+			cursor: pointer;
+		}
+
+		.form {
+			width: 320px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 40px;
+			padding: 30px;
+		}
+
+		input#usr {
+			padding: 10px;
+			margin: 20px;
+		}
+
+		input.button {
+			padding: 10px;
+			margin-left: 120px;
+		}
+
+		label {
+			padding: 10px;
+			margin-left: 100px;
+		}
+	</style>
   <script>
     function validateForm() {
         var username = document.loginform.usr.value;
-        window.localStorage.setItem('username',username);
+        window.localStorage.setItem('username', username);
+		console.log(window.localStorage.getItem('username'))
     }
 </script>
 </head>
 <body>
   <div class='form'>
-    <form name="loginform" onSubmit="return validateForm();" action="game.html" method="post">
+    <form name="loginform" onSubmit="return validateForm();" action="game.html" method="get">
       <label>Username</label>
       <input type="text" id='usr' name="usr" placeholder="username"> 
       <input type="submit" value="Login" class="button"/>
     </form>
   </div>
-
-  <script type="text/javascript" src="constants.js"></script>
-  <script type="text/javascript" src="board.js"></script>
-  <script type="text/javascript" src="piece.js"></script>
-  <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
